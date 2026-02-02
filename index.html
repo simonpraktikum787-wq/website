@@ -7,6 +7,35 @@
     <meta name="mobile-web-app-capable" content="yes">
     <title>Handouts Digital</title>
     <style>
+
+            :root {
+              --vh: 1vh;
+            }
+
+            body {
+
+              overflow: auto;
+              height: 100%;
+            }
+            
+
+            .container {
+
+              height: calc(var(--vh, 1vh) * 100);
+            }
+
+            .category-grid,
+            .viewer-container {
+              padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+
+            }
+            
+
+            .image-viewer,
+            .navigation {
+              padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+            }
+
         * {
             margin: 0;
             padding: 0;
@@ -720,5 +749,17 @@
 
         ReactDOM.render(<App />, document.getElementById('app'));
     </script>
+    <script>
+  // Setzt --vh auf 1% der aktuellen innerHeight — behebt iOS Safari Address-Bar Problem
+  function setVhVar() {
+    document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
+  }
+  // initial setzen
+  setVhVar();
+  // bei Resize / Orientationchange erneut setzen
+  window.addEventListener('resize', setVhVar);
+  window.addEventListener('orientationchange', setVhVar);
+</script>
+
 </body>
 </html>
