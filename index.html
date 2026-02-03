@@ -71,6 +71,8 @@
       flex: 1;               /* füllt verbleibenden Platz */
       padding-right: 10px;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     .category-button, .handout-button {
@@ -88,6 +90,14 @@
       justify-content: flex-start;
       min-height: 0;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    /* Scrollbar verstecken – Chrome / Safari / Edge */
+    .category-grid::-webkit-scrollbar,
+    .viewer-container::-webkit-scrollbar {
+      display: none;
     }
 
     /* Bild-Viewer begrenzen relativ zur dynamischen VH */
