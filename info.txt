@@ -1,8 +1,1 @@
-am besten eher kleinere nicht besonders längliches bilder einfügen damit man nicht scrollen muss.
-mann kann ja mehrere bilder pro handout hinzufügen, die dann auf verschiedene seiten verteilt werden.
-
-Benennungsschema: kategorie-id_handout-id_seitennummer.jpg
-Beispiel: medizinische-apps_e-rezept_1.jpg
-medizinische-apss_: kategorie der webseite
-e-rezept: name des handouts
-_1: schritt 1 des handouts
+https://simonpraktikum787-wq.github.io/website_benenung/
