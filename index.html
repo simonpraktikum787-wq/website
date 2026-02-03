@@ -359,27 +359,38 @@
             <div className="viewer-container">
               {isLoading ? <div className="loading">Lade Bilder...</div> :
                availablePages.length === 0 ? (
-                 <div className="error-message">
-                   ❌ Keine Bilder gefunden<br/><br/>
-                   Erwarteter Pfad:<br/>
-                   <strong style={{color:'#333', fontSize:'14px', display:'inline-block', marginTop:'10px', padding:'8px 16px', background:'#f0f0f0', borderRadius:'8px', border:'1px solid #d0d0d0'}}>
-                     bilder/{selectedHandout.categoryId}_{selectedHandout.id}_1.jpg
-                   </strong>
-                   <br/><br/>
-                   <span style={{fontSize:'14px', color:'#666'}}>Erstellen Sie einen Ordner "bilder" neben der HTML-Datei und legen Sie dort Ihre Bilder ab.</span>
-                   <br/><br/>
-                   {!pdfAvailable && (
-                     <>
-                       ❌ Kein PDF gefunden<br/><br/>
-                       Erwarteter Pfad:<br/>
-                       <strong style={{color:'#333', fontSize:'14px', display:'inline-block', marginTop:'10px', padding:'8px 16px', background:'#f0f0f0', borderRadius:'8px', border:'1px solid #d0d0d0'}}>
-                         handouts/{selectedHandout.categoryId}_{selectedHandout.id}.pdf
-                       </strong>
-                       <br/><br/>
-                       <span style={{fontSize:'14px', color:'#666'}}>Erstellen Sie einen Ordner "handouts" neben der HTML-Datei und legen Sie dort Ihre PDFs ab.</span>
-                     </>
+                 <>
+                   <div className="error-message">
+                     ❌ Keine Bilder gefunden<br/><br/>
+                     Erwarteter Pfad:<br/>
+                     <strong style={{color:'#333', fontSize:'14px', display:'inline-block', marginTop:'10px', padding:'8px 16px', background:'#f0f0f0', borderRadius:'8px', border:'1px solid #d0d0d0'}}>
+                       bilder/{selectedHandout.categoryId}_{selectedHandout.id}_1.jpg
+                     </strong>
+                     <br/><br/>
+                     <span style={{fontSize:'14px', color:'#666'}}>Erstellen Sie einen Ordner "bilder" neben der HTML-Datei und legen Sie dort Ihre Bilder ab.</span>
+                     <br/><br/>
+                     {!pdfAvailable && (
+                       <>
+                         ❌ Kein PDF gefunden<br/><br/>
+                         Erwarteter Pfad:<br/>
+                         <strong style={{color:'#333', fontSize:'14px', display:'inline-block', marginTop:'10px', padding:'8px 16px', background:'#f0f0f0', borderRadius:'8px', border:'1px solid #d0d0d0'}}>
+                           handouts/{selectedHandout.categoryId}_{selectedHandout.id}.pdf
+                         </strong>
+                         <br/><br/>
+                         <span style={{fontSize:'14px', color:'#666'}}>Erstellen Sie einen Ordner "handouts" neben der HTML-Datei und legen Sie dort Ihre PDFs ab.</span>
+                       </>
+                     )}
+                   </div>
+                   {pdfAvailable && (
+                     <button 
+                       className="download-button"
+                       onClick={downloadPdf}
+                     >
+                       <DownloadIcon />
+                       Handout als PDF herunterladen
+                     </button>
                    )}
-                 </div>
+                 </>
                ) : (
                  <>
                    <div className={`image-viewer ${isZoomed ? 'zoomed' : ''}`}>
